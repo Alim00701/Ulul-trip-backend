@@ -6,7 +6,7 @@ from .models import User
 
 
 class SignUpSerializer(serializers.ModelSerializer):
-    email = serializers.CharField(max_length=80)
+    email = serializers.EmailField(source="user.email")
     username = serializers.CharField(max_length=45)
     password = serializers.CharField(min_length=8, write_only=True)
 
